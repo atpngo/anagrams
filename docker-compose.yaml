@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  andvygrams-server:
+    build:
+      context: ./socket-server
+      dockerfile: Dockerfile
+    container_name: andvygrams-server
+    ports:
+      - "4000:4000"
+    restart: always
+
+  andvygrams-client:
+    build:
+      context: ./andvygrams
+      dockerfile: Dockerfile
+    container_name: andvygrams-client
+    ports:
+      - "3000:3000"
+    restart: always
+
+  words-api:
+    build:
+      context: ./words-api
+      dockerfile: Dockerfile
+    container_name: andvygrams-words-api
+    ports:
+      - "5000:5000"
+    restart: always

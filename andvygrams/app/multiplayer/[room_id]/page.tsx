@@ -206,7 +206,6 @@ export default function RoomPage()
         if (game)
         {
             let key = _key.toUpperCase();
-            console.log(key);
             if (letters.includes(key))
             {
                 // first index of letter
@@ -315,7 +314,6 @@ export default function RoomPage()
 
         function onOpponentReady()
         {
-            console.log("YO! MY OPPONENT IS")
             setOpponentReady(true)
         }
 
@@ -326,7 +324,6 @@ export default function RoomPage()
 
         function onDataReady(res : any)
         {
-            console.log("readying pog pog pog")
             console.log(res);
             setWaitingForGameData(false)
             setLetters(res[0])

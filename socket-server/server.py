@@ -39,8 +39,8 @@ class Util:
             code = Util.get_code()
         return code
 
-    def shuffle_string(string: str):
-        return "".join(random.sample(string, len(string)))
+    def shuffle_array(arr: str):
+        return random.sample(arr, len(arr))
 
 
 class WordsAPI:
@@ -348,7 +348,7 @@ class SocketServer:
 
     async def start_game_in_room(self, roomID):
         word, word_data = self.get_game()
-        await self.sio.emit("dataReady", [Util.shuffle_string(word), word_data], room=roomID)
+        await self.sio.emit("dataReady", [Util.shuffle_array(word), word_data], room=roomID)
         for playerID in self.room_handler.get_players(roomID):
             self.player_handler.get_player_by_id(playerID).reset()
 
